@@ -356,125 +356,146 @@
 
 
   <!-- BEVERAGES -->
-  <h2 class="text-3xl font-bold mb-6" data-category-heading="beverages">Beverages</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-    
+<h2 class="text-3xl font-bold mb-6" data-category-heading="beverages">Beverages</h2>
+
+<!-- Wrap all beverage groups in a normal vertical stack, NOT a grid -->
+<div data-category-heading="beverages" class="space-y-6">
+
   <!-- Coffee & Tea -->
-  <h3 class="text-2xl font-semibold mb-4">Coffee &amp; Tea</h3>
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+  <section>
+    <h3 class="text-2xl font-semibold mb-4">Coffee &amp; Tea</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
 
-    <!-- Coffee -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BCff.png" alt="Coffee" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Coffee</h3>
-      <p class="text-sm text-slate-300">
-        Local-style coffee, available hot or iced. Variants include Kopi O, Kopi, and Kopi C.
-      </p>
+      <!-- Coffee -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BCff.png" alt="Coffee" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Coffee</h3>
+        <p class="text-sm text-slate-300">
+          Local-style coffee, available hot or iced. Variants include Kopi O, Kopi, and Kopi C.
+        </p>
+      </div>
+
+      <!-- Tea -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BTea.png" alt="Tea" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Tea</h3>
+        <p class="text-sm text-slate-300">
+          Black tea served hot or iced. Options include Teh O, Teh, and Teh C.
+        </p>
+      </div>
+
+      <!-- Milo -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BMilo.png" alt="Milo" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Milo</h3>
+        <p class="text-sm text-slate-300">
+          Classic chocolate malt drink, served hot or iced.
+        </p>
+      </div>
+
+      <!-- Nescafe -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BNscf.png" alt="Nescafe" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Nescafe</h3>
+        <p class="text-sm text-slate-300">
+          Nescafe coffee prepared local-style, hot or iced.
+        </p>
+      </div>
+
+      <!-- Neslo -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BNeslo.png" alt="Neslo" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Neslo</h3>
+        <p class="text-sm text-slate-300">
+          Half Nescafe, half Milo – a rich, chocolatey coffee mix.
+        </p>
+      </div>
+
+      <!-- Yuan Yang -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BYY.png" alt="Yuan Yang" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Yuan Yang</h3>
+        <p class="text-sm text-slate-300">
+          Blend of coffee and tea, served hot or iced.
+        </p>
+      </div>
+
     </div>
-
-    <!-- Tea -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BTea.png" alt="Tea" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Tea</h3>
-      <p class="text-sm text-slate-300">
-        Black tea served hot or iced. Options include Teh O, Teh, and Teh C.
-      </p>
-    </div>
-
-    <!-- Milo -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BMilo.png" alt="Milo" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Milo</h3>
-      <p class="text-sm text-slate-300">
-        Classic chocolate malt drink, served hot or iced.
-      </p>
-    </div>
-
-    <!-- Nescafe -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BNscf.png" alt="Nescafe" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Nescafe</h3>
-      <p class="text-sm text-slate-300">
-        Nescafe coffee prepared local-style, hot or iced.
-      </p>
-    </div>
-
-    <!-- Neslo -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BNeslo.png" alt="Neslo" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Neslo</h3>
-      <p class="text-sm text-slate-300">
-        Half Nescafe, half Milo – a rich, chocolatey coffee mix.
-      </p>
-    </div>
-
-    <!-- Yuan Yang -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BYY.png" alt="Yuan Yang" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Yuan Yang</h3>
-      <p class="text-sm text-slate-300">
-        Blend of coffee and tea, served hot or iced.
-      </p>
-    </div>
-
-  </div>
+  </section>
 
   <!-- Bandung Series -->
-  <h3 class="text-2xl font-semibold mb-4">Bandung Series</h3>
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+  <section>
+    <h3 class="text-2xl font-semibold mb-4">Bandung Series</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
 
-    <!-- Bandung -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BBndg.png" alt="Bandung" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Bandung</h3>
-      <p class="text-sm text-slate-300">
-        Rose syrup milk drink, served iced.
-      </p>
+      <!-- Bandung -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BBndg.png" alt="Bandung" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Bandung</h3>
+        <p class="text-sm text-slate-300">
+          Rose syrup milk drink, served iced.
+        </p>
+      </div>
+
+      <!-- Syrup -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/BSrp.png" alt="Syrup" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Syrup</h3>
+        <p class="text-sm text-slate-300">
+          Sweet rose or fruity syrup drink, served over ice.
+        </p>
+      </div>
+
     </div>
-
-    <!-- Syrup -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/BSrp.png" alt="Syrup" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Syrup</h3>
-      <p class="text-sm text-slate-300">
-        Sweet rose or fruity syrup drink, served over ice.
-      </p>
-    </div>
-
-  </div>
+  </section>
 
   <!-- Juices & Others -->
-  <h3 class="text-2xl font-semibold mb-4">Juices &amp; Others</h3>
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-    
-    <!-- Fruit Juice -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/img.png" alt="Fruit Juice" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Fruit Juice</h3>
-      <p class="text-sm text-slate-300">
-        Choice of apple, orange, watermelon, carrot, lemon, lime, asam boi or honey lemon.
-      </p>
-    </div>
+  <section>
+    <h3 class="text-2xl font-semibold mb-4">Juices &amp; Others</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
 
-    <!-- Barley -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/img.png" alt="Barley" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Barley</h3>
-      <p class="text-sm text-slate-300">
-        Homemade barley drink, served hot or iced.
-      </p>
-    </div>
+      <!-- Fruit Juice -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/img.png" alt="Fruit Juice" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Fruit Juice</h3>
+        <p class="text-sm text-slate-300">
+          Choice of apple, orange, watermelon, carrot, lemon, lime, asam boi or honey lemon.
+        </p>
+      </div>
 
-    <!-- Soda -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="beverages">
-      <img src="/images/img.png" alt="Soda" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Soda</h3>
-      <p class="text-sm text-slate-300">
-        Ice-cold soda drinks to refresh your palate.
-      </p>
-    </div>
+      <!-- Barley -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/img.png" alt="Barley" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Barley</h3>
+        <p class="text-sm text-slate-300">
+          Homemade barley drink, served hot or iced.
+        </p>
+      </div>
 
-  </div>
+      <!-- Soda -->
+      <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition"
+           data-category="beverages">
+        <img src="/images/img.png" alt="Soda" class="rounded-lg mb-3 w-full h-40 object-cover">
+        <h3 class="text-xl font-bold mb-1">Soda</h3>
+        <p class="text-sm text-slate-300">
+          Ice-cold soda drinks to refresh your palate.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
 
   <!-- MODAL -->
   <div id="menuModal" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50 hidden">
