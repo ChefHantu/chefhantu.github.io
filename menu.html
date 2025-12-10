@@ -233,6 +233,7 @@
 
           const filter = document.getElementById('categoryFilter');
           const cards = document.querySelectorAll('[data-category]');
+          const headings = document.querySelectorAll('[data-category-heading]');  
           const modal = document.getElementById('menuModal');
           const modalTitle = document.getElementById('menuModalTitle');
           const modalDesc = document.getElementById('menuModalDesc');
@@ -242,20 +243,29 @@
           // --- Filter logic ---
           if (filter && cards.length) {
             function applyFilter() {
-              const value = filter.value;
-              cards.forEach(card => {
-                const cat = card.getAttribute('data-category');
-                if (value === 'all' || value === cat) {
-                  card.classList.remove('hidden');
-                } else {
-                  card.classList.add('hidden');
-                }
-              });
-            }
+  const value = filter.value;
 
-            filter.addEventListener('change', applyFilter);
-            applyFilter();
-          }
+  // cards
+  cards.forEach(card => {
+    const cat = card.getAttribute('data-category');
+    if (value === 'all' || value === cat) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  // headings
+  headings.forEach(h => {
+    const cat = h.getAttribute('data-category-heading');
+    if (value === 'all' || value === cat) {
+      h.classList.remove('hidden');
+    } else {
+      h.classList.add('hidden');
+    }
+  });
+}
+
 
           // --- Modal logic ---
           if (modal && modalTitle && modalDesc && modalImg && modalClose && cards.length) {
