@@ -128,39 +128,51 @@
   <!-- Footer -->
   <div data-include="partials/footer.html"></div>
 
-  <!-- Shared scripts (year, language toggle, etc.) -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Chef Hantu",
-        "servesCuisine": ["Malaysian", "Western", "Fusion"],
-        "image": "https://chefhantu.com/images/hero.jpg",
-        "url": "https://chefhantu.com",
-        "email": ["angah@chefhantu.com", "hafiz@chefhantu.com"],
-        "telephone": ["+60-11-5958-9600", "+65-9456-3526"],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "55 Jalan Sentral 2, Taman Nusa Sentral",
-          "addressLocality": "Gelang Patah",
-          "addressRegion": "Johor",
-          "postalCode": "79100",
-          "addressCountry": "MY"
-        },
-        "openingHours": ["Mo-Su 15:00-23:00"],
-        "priceRange": "$$",
-        "sameAs": [
-  "https://www.facebook.com/profile.php?id=61582625955194",
-  "https://www.instagram.com/chefhantu/",
-  "https://www.tiktok.com/@chef_hantu"
-        ]
+    <!-- Shared scripts (year, language toggle, etc.) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Chef Hantu",
+      "servesCuisine": ["Malaysian", "Western", "Fusion"],
+      "image": "https://chefhantu.com/images/hero.jpg",
+      "url": "https://chefhantu.com",
+      "email": ["angah@chefhantu.com", "hafiz@chefhantu.com"],
+      "telephone": ["+60-11-5958-9600", "+65-9456-3526"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "55 Jalan Sentral 2, Taman Nusa Sentral",
+        "addressLocality": "Gelang Patah",
+        "addressRegion": "Johor",
+        "postalCode": "79100",
+        "addressCountry": "MY"
+      },
+      "openingHours": ["Mo-Su 15:00-23:00"],
+      "priceRange": "$$",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61582625955194",
+        "https://www.instagram.com/chefhantu/",
+        "https://www.tiktok.com/@chef_hantu"
+      ]
+    }
+  </script>
+
+  <!-- Safe year updater -->
+  <script>
+    (function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
       }
-    </script>
-<script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-<script>
+    })();
+  </script>
+
+  <!-- Language toggle (safe if header not yet loaded) -->
+  <script>
+    (function () {
       const t = {
         en: {
           siteTitle: 'Chef Hantu',
@@ -192,28 +204,63 @@
         }
       };
 
-      const ids = ['siteTitle','navMenu','navGallery','navLocation','navContact','btnReserve','heroTitle','heroSub','btnViewMenu','btnFindUs','menuTitle','menuSubtitle','galleryTitle','gallerySubtitle','findUsTitle','contactTitle','contactSubtitle','labelName','labelPhone','labelMessage','btnSend','btnWaMY','btnWaSG'];
+      const ids = [
+        'siteTitle','navMenu','navGallery','navLocation','navContact','btnReserve',
+        'heroTitle','heroSub','btnViewMenu','btnFindUs',
+        'menuTitle','menuSubtitle',
+        'galleryTitle','gallerySubtitle',
+        'findUsTitle',
+        'contactTitle','contactSubtitle',
+        'labelName','labelPhone','labelMessage',
+        'btnSend','btnWaMY','btnWaSG'
+      ];
 
       function applyLang(lang){
         const dict = t[lang];
-        ids.forEach(id=>{
+        if (!dict) return;
+
+        ids.forEach(id => {
           const el = document.getElementById(id);
-          if(!el || !dict[id]) return;
-          if(id === 'heroTitle') el.innerHTML = dict[id]; else el.textContent = dict[id];
+          if (!el || !dict[id]) return;
+          if (id === 'heroTitle') el.innerHTML = dict[id];
+          else el.textContent = dict[id];
         });
+
         document.documentElement.setAttribute('lang', lang === 'ms' ? 'ms' : 'en');
-        document.getElementById('langEN').setAttribute('aria-pressed', lang==='en');
-        document.getElementById('langMS').setAttribute('aria-pressed', lang==='ms');
-        localStorage.setItem('chefHantuLang', lang);
+
+        const langEN = document.getElementById('langEN');
+        const langMS = document.getElementById('langMS');
+        if (langEN && langMS) {
+          langEN.setAttribute('aria-pressed', lang === 'en');
+          langMS.setAttribute('aria-pressed', lang === 'ms');
+        }
+
+        try {
+          localStorage.setItem('chefHantuLang', lang);
+        } catch (e) {}
       }
 
-      document.getElementById('langEN').addEventListener('click', ()=>applyLang('en'));
-      document.getElementById('langMS').addEventListener('click', ()=>applyLang('ms'));
-      applyLang(localStorage.getItem('chefHantuLang') || 'en');
-    </script>
+      function initLangToggle() {
+        const langEN = document.getElementById('langEN');
+        const langMS = document.getElementById('langMS');
+        if (!langEN || !langMS) return;
 
-  <!-- Loader for partials -->
-    <!-- Loader for partials + menu filter & modal init -->
+        langEN.addEventListener('click', () => applyLang('en'));
+        langMS.addEventListener('click', () => applyLang('ms'));
+
+        const saved = (function () {
+          try { return localStorage.getItem('chefHantuLang'); } catch (e) { return null; }
+        })() || 'en';
+
+        applyLang(saved);
+      }
+
+      // We'll call initLangToggle AFTER partials load (in the loader below)
+      window.__chefHantuInitLangToggle = initLangToggle;
+    })();
+  </script>
+
+  <!-- Loader for partials + menu filter & modal init -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const includePromises = [];
@@ -230,52 +277,58 @@
       Promise.all(includePromises)
         .then(function () {
           // After all partials are loaded, wire up menu filter & modal
+          if (typeof window.__chefHantuInitLangToggle === 'function') {
+            window.__chefHantuInitLangToggle();
+          }
 
-          const filter = document.getElementById('categoryFilter');
-          const cards = document.querySelectorAll('[data-category]');
-          const headings = document.querySelectorAll('[data-category-heading]');  
-          const modal = document.getElementById('menuModal');
+          const filter   = document.getElementById('categoryFilter');
+          const cards    = document.querySelectorAll('[data-category]');
+          const headings = document.querySelectorAll('[data-category-heading]');
+          const modal    = document.getElementById('menuModal');
           const modalTitle = document.getElementById('menuModalTitle');
-          const modalDesc = document.getElementById('menuModalDesc');
-          const modalImg = document.getElementById('menuModalImg');
+          const modalDesc  = document.getElementById('menuModalDesc');
+          const modalImg   = document.getElementById('menuModalImg');
           const modalClose = document.getElementById('menuModalClose');
 
           // --- Filter logic ---
           if (filter && cards.length) {
             function applyFilter() {
-  const value = filter.value;
+              const value = filter.value;
 
-  // cards
-  cards.forEach(card => {
-    const cat = card.getAttribute('data-category');
-    if (value === 'all' || value === cat) {
-      card.classList.remove('hidden');
-    } else {
-      card.classList.add('hidden');
-    }
-  });
+              // cards
+              cards.forEach(card => {
+                const cat = card.getAttribute('data-category');
+                if (value === 'all' || value === cat) {
+                  card.classList.remove('hidden');
+                } else {
+                  card.classList.add('hidden');
+                }
+              });
 
-  // headings
-  headings.forEach(h => {
-    const cat = h.getAttribute('data-category-heading');
-    if (value === 'all' || value === cat) {
-      h.classList.remove('hidden');
-    } else {
-      h.classList.add('hidden');
-    }
-  });
-}
+              // headings
+              headings.forEach(h => {
+                const cat = h.getAttribute('data-category-heading');
+                if (value === 'all' || value === cat) {
+                  h.classList.remove('hidden');
+                } else {
+                  h.classList.add('hidden');
+                }
+              });
+            }
 
+            filter.addEventListener('change', applyFilter);
+            applyFilter();
+          }
 
           // --- Modal logic ---
           if (modal && modalTitle && modalDesc && modalImg && modalClose && cards.length) {
             function openModal(card) {
               const titleEl = card.querySelector('h3');
               const descEl = card.querySelector('p');
-              const imgEl = card.querySelector('img');
+              const imgEl  = card.querySelector('img');
 
               modalTitle.textContent = titleEl ? titleEl.textContent : '';
-              modalDesc.textContent = descEl ? descEl.textContent : '';
+              modalDesc.textContent  = descEl ? descEl.textContent : '';
               if (imgEl) {
                 modalImg.src = imgEl.src;
                 modalImg.alt = imgEl.alt || '';
@@ -290,7 +343,6 @@
 
             cards.forEach(card => {
               card.addEventListener('click', (e) => {
-                // if you add buttons later, avoid triggering on them
                 if (e.target.tagName.toLowerCase() === 'button') return;
                 openModal(card);
               });
@@ -312,4 +364,3 @@
   </script>
 </body>
 </html>
-
