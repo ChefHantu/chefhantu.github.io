@@ -213,16 +213,93 @@
     </script>
 
   <!-- Loader for partials -->
+    <!-- Loader for partials + menu filter & modal init -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('[data-include]').forEach(function(el) {
-        var file = el.getAttribute('data-include');
-        fetch(file)
-          .then(function(resp) { return resp.text(); })
-          .then(function(html) { el.innerHTML = html; })
-          .catch(function(err) { console.error('Include failed for', file, err); });
+      const includePromises = [];
+
+      document.querySelectorAll('[data-include]').forEach(function (el) {
+        const file = el.getAttribute('data-include');
+        includePromises.push(
+          fetch(file)
+            .then(function (resp) { return resp.text(); })
+            .then(function (html) { el.innerHTML = html; })
+        );
       });
+
+      Promise.all(includePromises)
+        .then(function () {
+          // After all partials are loaded, wire up menu filter & modal
+
+          const filter = document.getElementById('categoryFilter');
+          const cards = document.querySelectorAll('[data-category]');
+          const modal = document.getElementById('menuModal');
+          const modalTitle = document.getElementById('menuModalTitle');
+          const modalDesc = document.getElementById('menuModalDesc');
+          const modalImg = document.getElementById('menuModalImg');
+          const modalClose = document.getElementById('menuModalClose');
+
+          // --- Filter logic ---
+          if (filter && cards.length) {
+            function applyFilter() {
+              const value = filter.value;
+              cards.forEach(card => {
+                const cat = card.getAttribute('data-category');
+                if (value === 'all' || value === cat) {
+                  card.classList.remove('hidden');
+                } else {
+                  card.classList.add('hidden');
+                }
+              });
+            }
+
+            filter.addEventListener('change', applyFilter);
+            applyFilter();
+          }
+
+          // --- Modal logic ---
+          if (modal && modalTitle && modalDesc && modalImg && modalClose && cards.length) {
+            function openModal(card) {
+              const titleEl = card.querySelector('h3');
+              const descEl = card.querySelector('p');
+              const imgEl = card.querySelector('img');
+
+              modalTitle.textContent = titleEl ? titleEl.textContent : '';
+              modalDesc.textContent = descEl ? descEl.textContent : '';
+              if (imgEl) {
+                modalImg.src = imgEl.src;
+                modalImg.alt = imgEl.alt || '';
+              }
+
+              modal.classList.remove('hidden');
+            }
+
+            function closeModal() {
+              modal.classList.add('hidden');
+            }
+
+            cards.forEach(card => {
+              card.addEventListener('click', (e) => {
+                // if you add buttons later, avoid triggering on them
+                if (e.target.tagName.toLowerCase() === 'button') return;
+                openModal(card);
+              });
+            });
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+              if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape') closeModal();
+            });
+          }
+        })
+        .catch(function (err) {
+          console.error('Include failed', err);
+        });
     });
   </script>
 </body>
 </html>
+
