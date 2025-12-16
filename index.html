@@ -89,5 +89,27 @@
   <!-- Scripts (includes loader, language toggle, etc.) -->
   <div data-include="partials/scripts.html"></div>
 
+
+  <script>
+    // Simple HTML partials loader (GitHub Pages friendly)
+    async function loadIncludes() {
+      const includeEls = document.querySelectorAll('[data-include]');
+      await Promise.all(Array.from(includeEls).map(async (el) => {
+        const file = el.getAttribute('data-include');
+        try {
+          const res = await fetch(file, { cache: 'no-store' });
+          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+          const html = await res.text();
+          // Replace the placeholder DIV with the fetched HTML
+          el.outerHTML = html;
+        } catch (err) {
+          console.error('Include failed:', file, err);
+          el.innerHTML = '';
+        }
+      }));
+    }
+    document.addEventListener('DOMContentLoaded', loadIncludes);
+  </script>
+
 </body>
 </html>
