@@ -1,466 +1,93 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chef Hantu | Malaysian-Western Fusion in Gelang Patah</title>
-    <meta name="description" content="Cozy Malaysian-Western fusion dining in Gelang Patah. Open daily 3–11pm. View menu, contact us, and find our location." />
-    <link rel="canonical" href="https://chefhantu.com/" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Social Sharing / Open Graph -->
-    <meta property="og:title" content="Chef Hantu" />
-    <meta property="og:description" content="Malaysian-Western fusion dining. See our menu, location, and hours." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://chefhantu.com/" />
-    <meta property="og:image" content="https://chefhantu.com/images/og-chef-hantu.jpg" />
-    <meta name="theme-color" content="#0b1220" />
+  <title>Chef Hantu | Malaysian-Western Fusion in Gelang Patah</title>
+  <meta name="description" content="Chef Hantu serves Malaysian-Western fusion comfort food in Gelang Patah. Muslim-owned, no pork, no alcohol, family-friendly." />
+  <link rel="canonical" href="https://chefhantu.com/" />
 
-    <!-- Icons -->
-    <link rel="icon" href="/images/favicon.ico" sizes="any">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chef Hantu" />
+  <meta property="og:description" content="Malaysian-Western fusion comfort food in Gelang Patah." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://chefhantu.com/" />
+  <meta property="og:image" content="https://chefhantu.com/images/og-chef-hantu.jpg" />
 
-    <!-- Tailwind via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Icons -->
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Preload background image for faster paint -->
-    <link rel="preload" as="image" href="/images/bg.jpg">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Helpers -->
-    <style>
-  .glass { backdrop-filter: blur(6px); background: rgba(15, 23, 42, 0.6); }
-  .section { scroll-margin-top: 100px; }
-  .shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+  <!-- Global styles -->
+  <style>
+    body {
+      font-family: 'Lora', serif;
+      color: #EAEAEA;
+      background-image: url('/images/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #0b1220;
+    }
 
-  /* Global background (one image for both desktop & mobile) */
-  body {
-    font-family: 'Lora', serif;
-    color: #EAEAEA;
-    background-image: url('/images/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #0b1220;
-  }
-</style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: -1;
+    }
 
-    <!-- Global styles (fonts, background, overlay) -->
-    <style>
-  body {
-    font-family: 'Lora', serif;
-    color: #EAEAEA;
-    background-image: url('/images/bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;   /* parallax effect */
-    background-color: #0b1220;      /* fallback */
-  }
-</style>
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
 
-<style>
-  /* Social icon hover glow */
-  .social-icon svg {
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 0 rgba(0,0,0,0));
-  }
-  .social-icon:hover svg {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 6px currentColor);
-  }
-</style>
+    .glass {
+      backdrop-filter: blur(6px);
+      background: rgba(15, 23, 42, 0.6);
+    }
 
-<style>
-  /* Subtle dark overlay for readability */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: -1;
-  }
-  h1, h2 {
-    font-family: 'Playfair Display', serif;
-    color: #FFFFFF;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-  }
-</style>
+    .section {
+      scroll-margin-top: 100px;
+    }
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Chef Hantu",
-        "servesCuisine": ["Malaysian", "Western", "Fusion"],
-        "image": "https://chefhantu.com/images/hero.jpg",
-        "url": "https://chefhantu.com",
-        "email": ["angah@chefhantu.com", "hafiz@chefhantu.com"],
-        "telephone": ["+60-11-5958-9600", "+65-9456-3526"],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "55 Jalan Sentral 2, Taman Nusa Sentral",
-          "addressLocality": "Gelang Patah",
-          "addressRegion": "Johor",
-          "postalCode": "79100",
-          "addressCountry": "MY"
-        },
-        "openingHours": ["Mo-Su 15:00-23:00"],
-        "priceRange": "$$",
-        "sameAs": [
-  "https://www.facebook.com/profile.php?id=61582625955194",
-  "https://www.instagram.com/chefhantu/",
-  "https://www.tiktok.com/@chef_hantu"
-        ]
-      }
-    </script>
-  </head>
+    .shadow-soft {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+  </style>
+</head>
 
-<body class="text-slate-100 antialiased">
-    <div class=\"fixed-mobile-bg\"></div>
+<body class="antialiased text-slate-100">
+
   <!-- Header -->
   <div data-include="partials/header.html"></div>
 
-  <!-- Main sections -->
- 
-<main>
-  <!-- HERO: app-style landing section -->
-  <section class="section" id="hero">
-    <div class="mx-auto max-w-6xl px-4 pt-16 pb-12 md:pt-24 md:pb-16">
-      <!-- Hero card -->
-      <div class="glass shadow-soft rounded-3xl border border-slate-800 overflow-hidden max-w-md mx-auto">
-        <img
-          src="/images/hero-squid-ink.jpg"
-          alt="Squid ink pasta with whole grilled squid at Chef Hantu"
-          class="h-56 w-full object-cover md:h-64">
-        <div class="p-4 md:p-5">
-          <h2 class="text-lg md:text-xl font-semibold">Squid Ink Signature Pasta</h2>
-          <p class="mt-1 text-sm text-slate-300">
-            Al dente squid ink pasta with a whole grilled squid, garlic butter and chili flakes.
-          </p>
-          <div class="mt-3 flex items-center justify-between text-sm">
-            <span class="font-semibold text-emerald-400">Coming soon</span>
-            <span class="text-slate-400">Chef's signature</span>
-          </div>
-        </div>
-      </div>
+  <!-- Hero -->
+  <div data-include="partials/hero.html"></div>
 
-      <!-- Text + main actions -->
-      <div class="mt-8 text-center max-w-xl mx-auto">
-        <h1 id="heroTitle" class="text-3xl md:text-5xl font-extrabold leading-tight">
-          Malaysian-Western <span class="text-emerald-400">Fusion</span> in Gelang Patah
-        </h1>
-        <p id="heroSub" class="mt-3 text-slate-200 md:text-lg">
-          Malaysian-Western comfort food in Gelang Patah.
-        </p>
+  <!-- Highlights -->
+  <div data-include="partials/highlights.html"></div>
 
-        <div class="mt-6 flex flex-wrap justify-center gap-3">
-          <a id="btnViewMenu"
-             href="menu.html"
-             class="inline-flex items-center rounded-2xl bg-emerald-400 px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-emerald-300">
-            View Menu
-          </a>
-          <a id="btnFindUs"
-             href="location.html"
-             class="inline-flex items-center rounded-2xl border border-slate-600 bg-slate-900/70 px-6 py-3 text-sm hover:bg-slate-800">
-            Find Us
-          </a>
-          <a id="btnWaMY"
-             href="https://wa.me/601159589600"
-             target="_blank" rel="noopener"
-             class="inline-flex items-center rounded-2xl border border-emerald-500/70 px-6 py-3 text-sm hover:bg-emerald-500/10">
-            WhatsApp MY
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-<!-- QUICK CTA CARDS: send people to the right pages quickly -->
-  <section class="section">
-    <div class="mx-auto max-w-6xl px-4 py-12 grid gap-6 md:grid-cols-3">
-      <!-- Menu card -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-soft">
-        <h2 class="text-xl font-semibold">Explore Our Menu</h2>
-        <p class="mt-2 text-sm text-slate-300">
-          Western favourites with a Malaysian soul – chops, pastas, rice bowls and kids’ meals.
-        </p>
-        <a href="menu.html"
-           class="mt-4 inline-flex text-sm items-center gap-2 text-emerald-400 hover:text-emerald-300">
-          View full menu →
-        </a>
-      </article>
+  <!-- Gallery -->
+  <div data-include="partials/gallery.html"></div>
 
-      <!-- Visit us card -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-soft">
-        <h2 class="text-xl font-semibold">Visit Us in Gelang Patah</h2>
-        <p class="mt-2 text-sm text-slate-300">
-          55 Jalan Sentral 2, Taman Nusa Sentral, 79100 Gelang Patah, Johor.
-        </p>
-        <a href="location.html"
-           class="mt-4 inline-flex text-sm items-center gap-2 text-emerald-400 hover:text-emerald-300">
-          Get directions →
-        </a>
-      </article>
+  <!-- Location -->
+  <div data-include="partials/location.html"></div>
 
-      <!-- Reservations / Contact card -->
-      <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 shadow-soft">
-        <h2 class="text-xl font-semibold">Book or Ask Us</h2>
-        <p class="mt-2 text-sm text-slate-300">
-          WhatsApp for reservations, group bookings or special requests.
-        </p>
-        <div class="mt-4 flex flex-wrap gap-3 text-sm">
-          <a href="https://wa.me/601159589600" target="_blank" rel="noopener"
-             class="rounded-xl border border-slate-700 px-3 py-2 hover:bg-slate-800">
-            WhatsApp MY
-          </a>
-          <a href="https://wa.me/6594563526" target="_blank" rel="noopener"
-             class="rounded-xl border border-slate-700 px-3 py-2 hover:bg-slate-800">
-            WhatsApp SG
-          </a>
-        </div>
-        <a href="contact.html"
-           class="mt-4 inline-flex text-sm items-center gap-2 text-emerald-400 hover:text-emerald-300">
-          Go to contact page →
-        </a>
-      </article>
-    </div>
-  </section>
-
-  <!-- HIGHLIGHTS: why people should care -->
-  <section class="section bg-slate-950/60 border-y border-slate-800/60">
-    <div class="mx-auto max-w-6xl px-4 py-12">
-      <h2 class="text-2xl md:text-3xl font-extrabold">Why visit Chef Hantu?</h2>
-      <p class="mt-2 text-slate-300 text-sm md:text-base">
-        Built for families, friends, and halal-conscious diners who love generous portions and bold flavours.
-      </p>
-
-      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-soft">
-          <h3 class="font-semibold">Muslim-Owned</h3>
-          <p class="mt-1 text-sm text-slate-300">
-            No pork and no alcohol in our cooking. Ingredients sourced with care.
-          </p>
-        </article>
-
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-soft">
-          <h3 class="font-semibold">Family-Ready</h3>
-          <p class="mt-1 text-sm text-slate-300">
-            Comfort seating, kids’ portions and relaxed vibes for all ages.
-          </p>
-        </article>
-
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-soft">
-          <h3 class="font-semibold">Value for Money</h3>
-          <p class="mt-1 text-sm text-slate-300">
-            Portions and pricing designed for regular visits – not just special occasions.
-          </p>
-        </article>
-
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-soft">
-          <h3 class="font-semibold">Open Late</h3>
-          <p class="mt-1 text-sm text-slate-300">
-            Daily from 5:00 PM – 12:00 AM Tues to Thurs
-                       5:00 PM - 02:00 AM Fri to Sun
-            Perfect for after-work dinners and supper.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SIGNATURE DISHES PREVIEW -->
-  <section class="section">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-      <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-extrabold">Signature dishes</h2>
-          <p class="mt-2 text-slate-300 text-sm md:text-base">
-            A small taste of what we serve. Explore the full menu for more mains, sides and drinks.
-          </p>
-        </div>
-        <a href="menu.html"
-           class="inline-flex rounded-xl border border-emerald-500/40 px-4 py-2 text-sm hover:bg-emerald-500/10">
-          View full menu
-        </a>
-      </div>
-
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <!-- Dish 1 -->
-        <article class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/40 shadow-soft">
-          <img src="/images/dishes/chicken-chop.jpg"
-               alt="Golden Chicken Chop with coconut-butter sauce"
-               class="h-44 w-full object-cover" onerror="this.style.display='none'" />
-          <div class="p-5">
-            <h3 class="font-semibold">Golden Chicken Chop</h3>
-            <p class="mt-1 text-sm text-slate-300">
-              Crispy chicken chop, potato wedges and our signature coconut-butter sauce.
-            </p>
-          </div>
-        </article>
-
-        <!-- Dish 2 -->
-        <article class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/40 shadow-soft">
-          <img src="/images/dishes/agyopasta.jpg"
-               alt="Aglio Olio with prawns"
-               class="h-44 w-full object-cover" onerror="this.style.display='none'" />
-          <div class="p-5">
-            <h3 class="font-semibold">Aglio Olio Prawns</h3>
-            <p class="mt-1 text-sm text-slate-300">
-              Garlic-chilli oil pasta with prawns and local herb touches.
-            </p>
-          </div>
-        </article>
-
-        <!-- Dish 3 -->
-        <article class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/40 shadow-soft">
-          <img src="/images/dishes/nasi-butterchicken.jpg"
-               alt="Nasi Butter Chicken"
-               class="h-44 w-full object-cover" onerror="this.style.display='none'" />
-          <div class="p-5">
-            <h3 class="font-semibold">Nasi Butter Chicken</h3>
-            <p class="mt-1 text-sm text-slate-300">
-              Creamy butter chicken, fragrant rice and sambal on the side.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOCIAL / FOLLOW US STRIP -->
-  <section class="section bg-slate-950/70 border-t border-slate-800/60">
-    <div class="mx-auto max-w-6xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="text-center md:text-left">
-        <h2 class="text-xl md:text-2xl font-extrabold">Follow our journey</h2>
-        <p class="mt-1 text-slate-300 text-sm md:text-base">
-          See behind-the-scenes, new dishes and promotions on social media.
-        </p>
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="https://wa.me/601159589600" target="_blank" rel="noopener"
-           class="hover:scale-110 transition-transform" title="WhatsApp">
-          <span class="text-sm text-emerald-300">WhatsApp</span>
-        </a>
-        <a href="https://www.instagram.com/chefhantu/" target="_blank" rel="noopener"
-           class="hover:scale-110 transition-transform" title="Instagram">
-          <span class="text-sm text-pink-300">@chefhantu</span>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61582625955194" target="_blank" rel="noopener"
-           class="hover:scale-110 transition-transform" title="Facebook">
-          <span class="text-sm text-blue-400">Facebook</span>
-        </a>
-        <a href="https://www.tiktok.com/@chef_hantu" target="_blank" rel="noopener"
-           class="hover:scale-110 transition-transform" title="TikTok">
-          <span class="text-sm text-slate-200">TikTok</span>
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
-
+  <!-- Contact -->
+  <div data-include="partials/contact.html"></div>
 
   <!-- Footer -->
   <div data-include="partials/footer.html"></div>
 
-  <!-- Original page scripts -->
-  <script src="https://cdn.tailwindcss.com"></script>
-<script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Chef Hantu",
-        "servesCuisine": ["Malaysian", "Western", "Fusion"],
-        "image": "https://chefhantu.com/images/hero.jpg",
-        "url": "https://chefhantu.com",
-        "email": ["angah@chefhantu.com", "hafiz@chefhantu.com"],
-        "telephone": ["+60-11-5958-9600", "+65-9456-3526"],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "55 Jalan Sentral 2, Taman Nusa Sentral",
-          "addressLocality": "Gelang Patah",
-          "addressRegion": "Johor",
-          "postalCode": "79100",
-          "addressCountry": "MY"
-        },
-        "openingHours": ["Mo-Su 15:00-23:00"],
-        "priceRange": "$$",
-        "sameAs": [
-  "https://www.facebook.com/profile.php?id=61582625955194",
-  "https://www.instagram.com/chefhantu/",
-  "https://www.tiktok.com/@chef_hantu"
-        ]
-      }
-    </script>
-<script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-<script>
-      const t = {
-        en: {
-          siteTitle: 'Chef Hantu',
-          navMenu: 'Menu', navGallery: 'Gallery', navLocation: 'Location', navContact: 'Contact',
-          btnReserve: 'Reserve',
-          heroTitle: 'Malaysian-Western <span class="text-emerald-400">Fusion</span> Dining',
-          heroSub: 'Cozy, family-friendly & culturally welcoming. Fresh ingredients, halal-friendly menu, and bold flavors.',
-          btnViewMenu: 'View Menu', btnFindUs: 'Find Us',
-          menuTitle: 'Menu Highlights', menuSubtitle: 'Full menu available in-store. Prices subject to change.',
-          galleryTitle: 'Gallery', gallerySubtitle: 'Swap these images with your own photos to make the page yours.',
-          findUsTitle: 'Find Us',
-          contactTitle: 'Contact & Reservations', contactSubtitle: 'Send us a WhatsApp or email. For quick replies, WhatsApp is best.',
-          labelName: 'Name', labelPhone: 'Phone / WhatsApp', labelMessage: 'Message',
-          btnSend: 'Send', btnWaMY: 'WhatsApp MY', btnWaSG: 'WhatsApp SG'
-        },
-        ms: {
-          siteTitle: 'Chef Hantu',
-          navMenu: 'Menu', navGallery: 'Galeri', navLocation: 'Lokasi', navContact: 'Hubungi',
-          btnReserve: 'Tempah',
-          heroTitle: 'Hidangan <span class="text-emerald-400">Fusi</span> Malaysia-Barat',
-          heroSub: 'Suasana mesra keluarga & sesuai untuk semua. Bahan segar, menu mesra halal dan rasa yang berani.',
-          btnViewMenu: 'Lihat Menu', btnFindUs: 'Cari Kami',
-          menuTitle: 'Sorotan Menu', menuSubtitle: 'Menu penuh tersedia di kedai. Harga tertakluk kepada perubahan.',
-          galleryTitle: 'Galeri', gallerySubtitle: 'Gantikan imej ini dengan foto anda sendiri.',
-          findUsTitle: 'Cari Kami',
-          contactTitle: 'Hubungi & Tempahan', contactSubtitle: 'Hantar WhatsApp atau e-mel. Untuk respons pantas, WhatsApp adalah terbaik.',
-          labelName: 'Nama', labelPhone: 'Telefon / WhatsApp', labelMessage: 'Mesej',
-          btnSend: 'Hantar', btnWaMY: 'WhatsApp MY', btnWaSG: 'WhatsApp SG'
-        }
-      };
+  <!-- Scripts (includes loader, language toggle, etc.) -->
+  <div data-include="partials/scripts.html"></div>
 
-      const ids = ['siteTitle','navMenu','navGallery','navLocation','navContact','btnReserve','heroTitle','heroSub','btnViewMenu','btnFindUs','menuTitle','menuSubtitle','galleryTitle','gallerySubtitle','findUsTitle','contactTitle','contactSubtitle','labelName','labelPhone','labelMessage','btnSend','btnWaMY','btnWaSG'];
-
-      function applyLang(lang){
-        const dict = t[lang];
-        ids.forEach(id=>{
-          const el = document.getElementById(id);
-          if(!el || !dict[id]) return;
-          if(id === 'heroTitle') el.innerHTML = dict[id]; else el.textContent = dict[id];
-        });
-        document.documentElement.setAttribute('lang', lang === 'ms' ? 'ms' : 'en');
-        document.getElementById('langEN').setAttribute('aria-pressed', lang==='en');
-        document.getElementById('langMS').setAttribute('aria-pressed', lang==='ms');
-        localStorage.setItem('chefHantuLang', lang);
-      }
-
-      document.getElementById('langEN').addEventListener('click', ()=>applyLang('en'));
-      document.getElementById('langMS').addEventListener('click', ()=>applyLang('ms'));
-      applyLang(localStorage.getItem('chefHantuLang') || 'en');
-    </script>
-
-  <!-- Simple client-side loader for partials -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('[data-include]').forEach(function(el) {
-        var file = el.getAttribute('data-include');
-        fetch(file)
-          .then(function(resp) { return resp.text(); })
-          .then(function(html) { el.innerHTML = html; })
-          .catch(function(err) { console.error('Include failed for', file, err); });
-      });
-    });
-  </script>
 </body>
 </html>
