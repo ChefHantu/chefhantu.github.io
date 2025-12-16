@@ -91,25 +91,60 @@
 
 
   <script>
-    // Simple HTML partials loader (GitHub Pages friendly)
-    async function loadIncludes() {
-      const includeEls = document.querySelectorAll('[data-include]');
-      await Promise.all(Array.from(includeEls).map(async (el) => {
-        const file = el.getAttribute('data-include');
-        try {
-          const res = await fetch(file, { cache: 'no-store' });
-          if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-          const html = await res.text();
-          // Replace the placeholder DIV with the fetched HTML
-          el.outerHTML = html;
-        } catch (err) {
-          console.error('Include failed:', file, err);
-          el.innerHTML = '';
-        }
-      }));
+  // HTML partials loader + execute scripts inside partials
+  async function loadIncludes() {
+    const includeEls = document.querySelectorAll('[data-include]');
+
+    for (const el of includeEls) {
+      const file = el.getAttribute('data-include');
+
+      try {
+        const res = await fetch(file, { cache: 'no-store' });
+        if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+
+        const html = await res.text();
+
+        // Parse into a temporary container
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+
+        // Extract scripts (so we can execute them)
+        const scripts = Array.from(tmp.querySelectorAll('script'));
+        scripts.forEach(s => s.remove());
+
+        // Replace placeholder with the loaded HTML nodes
+        const nodes = Array.from(tmp.childNodes);
+        el.replaceWith(...nodes);
+
+        // Re-insert scripts so they execute
+        scripts.forEach(oldScript => {
+          const s = document.createElement('script');
+
+          // Keep attributes (type, src, etc.)
+          for (const attr of oldScript.attributes) {
+            s.setAttribute(attr.name, attr.value);
+          }
+
+          // Inline script content
+          if (!oldScript.src) {
+            s.textContent = oldScript.textContent;
+          }
+
+          // Put JSON-LD in <head>, normal scripts at end of <body>
+          const type = (s.getAttribute('type') || '').toLowerCase();
+          if (type === 'application/ld+json') document.head.appendChild(s);
+          else document.body.appendChild(s);
+        });
+
+      } catch (err) {
+        console.error('Include failed:', file, err);
+        el.replaceWith(document.createComment(`Failed include: ${file}`));
+      }
     }
-    document.addEventListener('DOMContentLoaded', loadIncludes);
-  </script>
+  }
+
+  document.addEventListener('DOMContentLoaded', loadIncludes);
+</script>
 
 </body>
 </html>
