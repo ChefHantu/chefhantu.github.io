@@ -38,6 +38,13 @@
       }
     });
   }
+  function applySrcBindings() {
+  document.querySelectorAll("[data-src]").forEach(el => {
+    const val = getPath(C, el.getAttribute("data-src"));
+    if (!val) return;
+    el.setAttribute("src", val);
+  });
+}
 
   function applyYear() {
     const y = document.getElementById("year");
@@ -94,6 +101,7 @@
   document.addEventListener("partials:loaded", () => {
     applyTextBindings();
     applyLinkBindings();
+    applySrcBindings();
     applyYear();
     injectJsonLd();
     initLanguageAfterIncludes();
@@ -103,6 +111,7 @@
   window.addEventListener("DOMContentLoaded", () => {
     applyTextBindings();
     applyLinkBindings();
+    applySrcBindings();
     applyYear();
     injectJsonLd();
   });
