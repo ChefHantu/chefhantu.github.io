@@ -31,7 +31,7 @@ window.CHEF_HANTU = {
   },
 
   images: {
-    hero: "https://chefhantu.com/images/hero.png",
+    hero: "/images/hero.png",
     og: "https://chefhantu.com/images/og-chef-hantu.jpg"
   },
 
