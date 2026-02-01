@@ -5,8 +5,8 @@ window.CHEF_HANTU = {
   emails: ["angah@chefhantu.com", "hafiz@chefhantu.com"],
 
   phones: {
-    whatsappMY_display: "+60 11-5958 9600",
-    whatsappMY_e164: "601159589600",  // wa.me/601159589600
+    whatsappMY_display: "+60 18-967 9600",
+    whatsappMY_e164: "60189679600",  // wa.me/60189679600
   },
 
   address: {
