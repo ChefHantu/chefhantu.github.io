@@ -20,8 +20,8 @@ window.CHEF_HANTU = {
 
   hours: {
     // pick ONE truth; everything renders from this
-    label: "Daily, 3:00 PM – 11:00 PM",
-    schema: "Mo-Su 15:00-23:00"
+    label: "Daily, 12:00 PM – 10:00 PM",
+    schema: "Mo-Su 12:00-22:00"
   },
 
   socials: {
