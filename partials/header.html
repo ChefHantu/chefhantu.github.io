@@ -19,19 +19,116 @@
       <a id="navContact" href="contact.html" class="hover:text-emerald-300">Contact</a>
     </nav>
 
-    <!-- Language Toggle -->
-    <div class="flex items-center gap-2 text-sm">
-      <button id="langEN" class="px-2 py-1 rounded hover:bg-slate-800" aria-pressed="true">EN</button>
-      <span class="opacity-50">|</span>
-      <button id="langMS" class="px-2 py-1 rounded hover:bg-slate-800" aria-pressed="false">BM</button>
-    </div>
-
-    <!-- Social icons (desktop) + Reserve -->
+    <!-- Right Side -->
     <div class="flex items-center gap-3">
 
-      <!-- Social icons -->
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-2 text-sm">
+        <button id="langEN" class="px-2 py-1 rounded hover:bg-slate-800" aria-pressed="true">EN</button>
+        <span class="opacity-50">|</span>
+        <button id="langMS" class="px-2 py-1 rounded hover:bg-slate-800" aria-pressed="false">BM</button>
+      </div>
+
+      <!-- Social icons desktop -->
       <div class="hidden md:flex items-center gap-3">
 
         <!-- WhatsApp -->
         <a href="https://wa.me/601159589600" target="_blank" rel="noopener" title="WhatsApp"
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+           class="hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-emerald-400 hover:text-emerald-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.001 2.003c-5.522 0-9.998 4.477-9.998 10.002 0 1.765.463 3.442 1.342 4.935L2 22l5.228-1.365A9.933 9.933 0 0 0 12 22.005c5.523 0 10.001-4.477 10.001-10.002S17.524 2.003 12.001 2.003Z"/>
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/chefhantu/" target="_blank" rel="noopener" title="Instagram"
+           class="hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-pink-400 hover:text-pink-300" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.344 3.608 1.319Z"/>
+          </svg>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/profile.php?id=61582625955194" target="_blank" rel="noopener"
+           title="Facebook" class="hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-500 hover:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22.675 0h-21.35C.593 0 0 .593 0 1.326v21.348Z"/>
+          </svg>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@chef_hantu" target="_blank" rel="noopener"
+           title="TikTok" class="hover:scale-110 transition-transform">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-200 hover:text-gray-100" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 1 0 10 10V2h-8z"/>
+          </svg>
+        </a>
+
+      </div>
+
+      <!-- Reserve desktop -->
+      <a id="btnReserve" href="contact.html"
+         class="hidden sm:inline-flex items-center rounded-xl bg-emerald-400 px-3 md:px-4 py-2 text-slate-900 font-semibold hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+        Reserve
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobileMenuBtn"
+              class="md:hidden inline-flex items-center justify-center rounded-lg border border-slate-700 px-3 py-2 text-slate-100 hover:bg-slate-800"
+              aria-label="Open menu"
+              aria-expanded="false">
+        ☰
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav id="mobileMenu" class="md:hidden hidden border-t border-slate-800 bg-slate-950/95 px-4 pb-4 text-sm">
+    <div class="flex flex-col gap-3 pt-3">
+      <a href="index.html" class="hover:text-emerald-300">Home</a>
+      <a href="menu.html" class="hover:text-emerald-300">Menu</a>
+      <a href="payment.html" class="hover:text-emerald-300">Payment</a>
+      <a href="gallery.html" class="hover:text-emerald-300">Gallery</a>
+      <a href="location.html" class="hover:text-emerald-300">Location</a>
+      <a href="contact.html" class="hover:text-emerald-300">Contact</a>
+
+      <!-- Mobile social icons -->
+      <div class="flex items-center gap-4 pt-2">
+
+        <a href="https://wa.me/601159589600" target="_blank" rel="noopener" title="WhatsApp"
+           class="text-emerald-400 hover:text-emerald-300">WhatsApp</a>
+
+        <a href="https://www.instagram.com/chefhantu/" target="_blank" rel="noopener" title="Instagram"
+           class="text-pink-400 hover:text-pink-300">Instagram</a>
+
+        <a href="https://www.facebook.com/profile.php?id=61582625955194" target="_blank" rel="noopener"
+           title="Facebook" class="text-blue-400 hover:text-blue-300">Facebook</a>
+
+        <a href="https://www.tiktok.com/@chef_hantu" target="_blank" rel="noopener"
+           title="TikTok" class="text-gray-200 hover:text-white">TikTok</a>
+
+      </div>
+
+      <a href="contact.html"
+         class="mt-2 inline-flex w-fit items-center rounded-xl bg-emerald-400 px-4 py-2 text-slate-900 font-semibold hover:bg-emerald-300">
+        Reserve
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('mobileMenuBtn');
+      const menu = document.getElementById('mobileMenu');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function () {
+        menu.classList.toggle('hidden');
+        const isOpen = !menu.classList.contains('hidden');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    })();
+  </script>
+</header>
