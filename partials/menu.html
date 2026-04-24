@@ -12,19 +12,93 @@
   class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900/80 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-emerald-500"
 >
   <option value="all">All categories</option>
-  <option value="western">Western mains</option>
-  <option value="pasta">Pasta</option>
-  <option value="asian">Asian & Fusion</option>
-  <option value="kids">Kids</option>
-  <option value="sides">Sides</option>
-  <option value="beverages">Beverages</option>
+  <option value="Specials">Specials</option>      
+  <option value="Lamb">Lamb</option>
+  <option value="Beef">Beef</option>
+  <option value="Fish">Fish</option>
+  <option value="Chicken">Chicken</option>
+  <option value="Burgers">Burgers</option>
+  <option value="Pasta">Pasta</option>
+  <option value="Rice">Rice</option>
+  <option value="Roodles">Noodles</option>
+  <option value="Sides">Sides</option>
+  <option value="Combo">Combo</option>
+  <option value="Kids">Kids</option>
+  <option value="Beverages">Beverages</option>
 </select>
 
     </div>
   </div>
 
-  <!-- WESTERN MAINS -->
-  <h2 class="text-3xl font-bold mb-6" data-category-heading="western">Western Mains</h2>
+ <!-- Specials -->
+  <h2 class="text-3xl font-bold mb-6" data-category-heading="Specials">Specials</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+
+     <!-- Lemak Cili Padi Pasta -->
+    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="pasta">
+      <img src="/images/PLmClPd.png" alt="Lemak Cili Padi Pasta" class="rounded-lg mb-3">
+      <h3 class="text-xl font-bold mb-1">Lemak Cili Padi Pasta</h3>
+      <p class="text-sm text-slate-300">
+        Creamy lemak-style pasta with cili padi heat and local flavours, for spicy lovers.
+      </p>
+    </div>
+
+     <!-- Squid Ink Pasta (Signature) -->
+    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="pasta">
+      <img src="/images/SSqIkPt.jpg" alt="Squid Ink Pasta" class="rounded-lg mb-3">
+      <h3 class="text-xl font-bold mb-1">Squid Ink Pasta (Signature)</h3>
+      <p class="text-sm text-slate-300">
+        Jet-black squid ink pasta with whole grilled squid, cherry tomatoes and parsley – Chef Hantu’s signature.
+      </p>
+    </div>
+
+    <!-- Chicken Cordon Bleu -->
+    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
+      <img src="/images/SCdBl.png" alt="Chicken Cordon Bleu" class="rounded-lg mb-3">
+      <h3 class="text-xl font-bold mb-1">Chicken Cordon Bleu</h3>
+      <p class="text-sm text-slate-300">
+        Chef’s special stuffed chicken with melty cheese and chicken ham, fried to a golden crisp. Served with 2 sides.
+      </p>
+    </div>
+
+   <!-- Lamb -->
+  <h2 class="text-3xl font-bold mb-6" data-category-heading="Lamb">Lamb</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+
+  <!-- Rack of Lamb -->
+    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
+      <img src="/images/MRkLb.png" alt="Rack of Lamb" class="rounded-lg mb-3">
+      <h3 class="text-xl font-bold mb-1">Rack of Lamb</h3>
+      <p class="text-sm text-slate-300">
+        Tender, flavourful lamb grilled with herbs. Served with your choice of 2 sides.
+      </p>
+    </div> 
+
+  <!-- Beef -->
+  <h2 class="text-3xl font-bold mb-6" data-category-heading="Beef">Beef</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+
+  <!-- Striploin Steak -->
+    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
+      <img src="/images/MStLnSt.png" alt="Striploin Steak" class="rounded-lg mb-3">
+      <h3 class="text-xl font-bold mb-1">Striploin Steak</h3>
+      <p class="text-sm text-slate-300">
+        A juicy, well-marbled strip loin grilled for maximum flavour, paired with our special brown sauce and sides &amp; black pepper. Served with your choice of 2 sides.
+      </p>
+    </div>
+
+  <!-- Rib Eye Steak -->
+    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
+      <img src="/images/MRbEySt.png" alt="Rib Eye Steak" class="rounded-lg mb-3">
+      <h3 class="text-xl font-bold mb-1">Rib Eye Steak</h3>
+      <p class="text-sm text-slate-300">
+        Juicy ribeye steak grilled to perfection. Served with your choice of 2 sides.
+      </p>
+    </div>
+
+    
+  <!-- Chichen -->
+  <h2 class="text-3xl font-bold mb-6" data-category-heading="Chicken">Chicken</h2>
   <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
 
     <!-- Grilled Chicken Chop -->
@@ -36,15 +110,6 @@
       </p>
     </div>
 
-    <!-- Striploin Steak -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
-      <img src="/images/MStLnSt.png" alt="Striploin Steak" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Striploin Steak</h3>
-      <p class="text-sm text-slate-300">
-        A juicy, well-marbled strip loin grilled for maximum flavour, paired with our special brown sauce and sides &amp; black pepper. Served with your choice of 2 sides.
-      </p>
-    </div>
-
     <!-- Fried Chicken Chop -->
     <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
       <img src="/images/MFrCxCh.png" alt="Fried Chicken Chop" class="rounded-lg mb-3">
@@ -53,6 +118,10 @@
         Crispy golden chicken cutlet. Juicy inside, crunchy outside. Served with your choice of 2 sides.
       </p>
     </div>
+
+    
+
+ 
 
     <!-- Fish & Chips -->
     <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
@@ -81,23 +150,9 @@
       </p>
     </div>
 
-    <!-- Rack of Lamb -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
-      <img src="/images/MRkLb.png" alt="Rack of Lamb" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Rack of Lamb</h3>
-      <p class="text-sm text-slate-300">
-        Tender, flavourful lamb grilled with herbs. Served with your choice of 2 sides.
-      </p>
-    </div>
+    
 
-    <!-- Rib Eye Steak -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
-      <img src="/images/MRbEySt.png" alt="Rib Eye Steak" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Rib Eye Steak</h3>
-      <p class="text-sm text-slate-300">
-        Juicy ribeye steak grilled to perfection. Served with your choice of 2 sides.
-      </p>
-    </div>
+    
 
     <!-- Burger -->
     <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
@@ -108,14 +163,7 @@
       </p>
     </div>
 
-    <!-- Chicken Cordon Bleu -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="western">
-      <img src="/images/SCdBl.png" alt="Chicken Cordon Bleu" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Chicken Cordon Bleu</h3>
-      <p class="text-sm text-slate-300">
-        Chef’s special stuffed chicken with melty cheese and chicken ham, fried to a golden crisp. Served with 2 sides.
-      </p>
-    </div>
+    
 
   </div>
 
@@ -148,24 +196,6 @@
       <h3 class="text-xl font-bold mb-1">Bolognese Pasta</h3>
       <p class="text-sm text-slate-300">
         Slow-cooked meat sauce served over spaghetti, topped with parmesan cheese.
-      </p>
-    </div>
-
-    <!-- Lemak Cili Padi Pasta -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="pasta">
-      <img src="/images/PLmClPd.png" alt="Lemak Cili Padi Pasta" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Lemak Cili Padi Pasta</h3>
-      <p class="text-sm text-slate-300">
-        Creamy lemak-style pasta with cili padi heat and local flavours, for spicy lovers.
-      </p>
-    </div>
-
-    <!-- Squid Ink Pasta (Signature) -->
-    <div class="glass p-4 rounded-xl shadow-soft cursor-pointer hover:-translate-y-1 hover:shadow-lg transition" data-category="pasta">
-      <img src="/images/SSqIkPt.jpg" alt="Squid Ink Pasta" class="rounded-lg mb-3">
-      <h3 class="text-xl font-bold mb-1">Squid Ink Pasta (Signature)</h3>
-      <p class="text-sm text-slate-300">
-        Jet-black squid ink pasta with whole grilled squid, cherry tomatoes and parsley – Chef Hantu’s signature.
       </p>
     </div>
 
