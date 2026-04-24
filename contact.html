@@ -212,17 +212,53 @@
       applyLang(localStorage.getItem('chefHantuLang') || 'en');
     </script>
 
-  <!-- Loader for partials -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('[data-include]').forEach(function(el) {
-        var file = el.getAttribute('data-include');
-        fetch(file)
-          .then(function(resp) { return resp.text(); })
-          .then(function(html) { el.innerHTML = html; })
-          .catch(function(err) { console.error('Include failed for', file, err); });
-      });
-    });
-  </script>
+  <!-- Loader for partials + execute scripts inside partials -->
+<script>
+  async function loadIncludes() {
+    const includeEls = document.querySelectorAll('[data-include]');
+
+    for (const el of includeEls) {
+      const file = el.getAttribute('data-include');
+
+      try {
+        const res = await fetch(file, { cache: 'no-store' });
+        if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+
+        const html = await res.text();
+
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+
+        const scripts = Array.from(tmp.querySelectorAll('script'));
+        scripts.forEach(s => s.remove());
+
+        const nodes = Array.from(tmp.childNodes);
+        el.replaceWith(...nodes);
+
+        scripts.forEach(oldScript => {
+          const s = document.createElement('script');
+
+          for (const attr of oldScript.attributes) {
+            s.setAttribute(attr.name, attr.value);
+          }
+
+          if (!oldScript.src) {
+            s.textContent = oldScript.textContent;
+          }
+
+          const type = (s.getAttribute('type') || '').toLowerCase();
+          if (type === 'application/ld+json') document.head.appendChild(s);
+          else document.body.appendChild(s);
+        });
+
+      } catch (err) {
+        console.error('Include failed:', file, err);
+        el.replaceWith(document.createComment(`Failed include: ${file}`));
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadIncludes);
+</script>
 </body>
 </html>
